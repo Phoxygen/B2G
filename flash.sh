@@ -137,7 +137,7 @@ flash_fastboot()
 
 	"")
 		VERB="erase"
-		if [ "$DEVICE" == "hammerhead" ] || [ "$DEVICE" == "mako" ] ||
+		if [ "$DEVICE" == "hammerhead" ] || [ "$DEVICE" == "shamu" ] || [ "$DEVICE" == "mako" ] ||
 		[ "$DEVICE" == "flo" ]; then
 			VERB="format"
 		fi
@@ -395,7 +395,7 @@ case "$DEVICE" in
 	flash_fastboot nounlock $PROJECT
 	;;
 
-"panda"|"maguro"|"crespo"|"crespo4g"|"mako"|"hammerhead"|"flo")
+"panda"|"maguro"|"crespo"|"crespo4g"|"mako"|"hammerhead"|"flo"|"shamu")
 	flash_fastboot unlock $PROJECT
 	;;
 

@@ -30,7 +30,7 @@ case `uname` in
 	exit -1
 esac
 
-GITREPO=${GITREPO:-"git://github.com/mozilla-b2g/b2g-manifest"}
+GITREPO=${GITREPO:-"git://github.com/Phoxygen/b2g-manifest"}
 BRANCH=${BRANCH:-master}
 
 while [ $# -ge 1 ]; do
@@ -105,6 +105,12 @@ case "$1" in
 	repo_sync nexus-5-l
 	;;
 
+"nexus-6")
+	echo DEVICE=shamu >> .tmp-config &&
+	echo PRODUCT_NAME=aosp_shamu >> .tmp-config &&
+	repo_sync nexus-6
+	;;
+
 "nexus-s")
 	echo DEVICE=crespo >> .tmp-config &&
 	repo_sync $1
@@ -152,7 +158,7 @@ case "$1" in
 	echo DEVICE=vixen >> .tmp-config &&
 	echo PRODUCT_NAME=vixen >> .tmp-config &&
 	repo_sync $1
-	;;  
+	;;
 
 "emulator"|"emulator-jb"|"emulator-kk"|"emulator-l")
 	echo DEVICE=generic >> .tmp-config &&
@@ -197,6 +203,7 @@ case "$1" in
 	echo - nexus-4-kk
 	echo - nexus-5
 	echo - nexus-5-l
+	echo - nexus-6
 	echo - nexus-s
 	echo - nexus-s-4g
 	echo - flo "(Nexus 7 2013)"
